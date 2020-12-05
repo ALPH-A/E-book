@@ -1,0 +1,9 @@
+.parent {
+    -fx-background-color: #2e2d2d;
+}
+.sidebar {
+    -fx-background-color: #333645;
+}
+.separator {
+    -fx-background-color: #d1d1d1;
+}
