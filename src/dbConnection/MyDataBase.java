@@ -19,13 +19,22 @@ public class MyDataBase {
     static String url="jdbc:mysql://localhost:3306/ebook";
     static String login="root";
     static String pwd="";
-    public void MyConnection()  {
+    Connection cnx;
+    public  MyDataBase()  {
         try {
-            Connection cnx = DriverManager.getConnection(url, login, pwd);
+            cnx = DriverManager.getConnection(url, login, pwd);
             System.out.println("connexion etablie!");
+            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+            
         }
+        
+        
+    }
+
+    public Connection getCnx() {
+        return cnx;
     }
     
 }
