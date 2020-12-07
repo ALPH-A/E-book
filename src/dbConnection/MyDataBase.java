@@ -5,6 +5,7 @@
  */
 package dbConnection;
 
+import static com.oracle.nio.BufferSecrets.instance;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ public class MyDataBase {
     static String login="root";
     static String pwd="";
     Connection cnx;
+    public static MyDataBase instance;
     public  MyDataBase()  {
         try {
             cnx = DriverManager.getConnection(url, login, pwd);
@@ -35,6 +37,12 @@ public class MyDataBase {
 
     public Connection getCnx() {
         return cnx;
+    }
+    public static MyDataBase getInstance(){
+        if(instance==null) {
+            instance = new MyDataBase();
+        }
+        return instance;
     }
     
 }
