@@ -33,7 +33,7 @@
                         <Image url="@../../../../Downloads/open-book%20(1).png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="30.0" text="Commande" textFill="#dad1d1">
+                  <Label  prefHeight="30.0" text="Commande" textFill="#dad1d1">
                      <HBox.margin>
                         <Insets bottom="35.0" left="15.0" top="35.0" />
                      </HBox.margin>

@@ -20,6 +20,13 @@ public class Commande {
     private int clientId;
     private int livreId;
 
+    public Commande(double prixTotal, Date dateCommande, int clientId, int livreId) {
+        this.prixTotal = prixTotal;
+        this.dateCommande = dateCommande;
+        this.clientId = clientId;
+        this.livreId = livreId;
+    }
+
     public Commande(int id, double prixTotal, Date dateCommande, int clientId, int livreId) {
         this.id = id;
         this.prixTotal = prixTotal;
@@ -27,6 +34,9 @@ public class Commande {
         this.clientId = clientId;
         this.livreId = livreId;
     }
+
+    
+    
 
     public int getId() {
         return id;
@@ -66,6 +76,10 @@ public class Commande {
 
     public void setLivreId(int livreId) {
         this.livreId = livreId;
+    }
+    @Override
+    public String toString() {
+        return "Commande{" + "id=" + id + ", prixTotal=" + prixTotal + ", dateCommande=" + dateCommande + ", clientId=" + clientId + ", livreId=" + livreId + '}';
     }
     
     
