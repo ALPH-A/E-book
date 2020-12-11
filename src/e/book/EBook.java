@@ -5,11 +5,10 @@
  */
 package e.book;
 
-import controller.commandeController;
+
+import controller.livreController;
 import dbConnection.MyDataBase;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -17,7 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import entity.Commande;
+
+import entity.Livre;
 
 /**
  *
@@ -52,16 +52,24 @@ public class EBook extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        long millis=System.currentTimeMillis();  
-        java.sql.Date currentDate=new java.sql.Date(millis);
-        System.out.println(currentDate);
+       // long millis=System.currentTimeMillis();  
+        //java.sql.Date currentDate=new java.sql.Date(millis);
+        //System.out.println(currentDate);
 //        commandeController c = new commandeController();
 //        for(Commande p1 : c.listerCommandes()){
 //            System.out.println(p1.toString());
 //        }
+        MyDataBase md =new MyDataBase();
+        livreController lc = new livreController();
+        Livre l = new Livre (1,"LA VIE EN ROSE","il est magnifique","jean ",15.5,"romantique");
         
-        //pc.ajouterPersonne();
-        
+        //lc.ajouterLivre(l);
+                //Livre l2 = new Livre (1,"LA VIE "," magnifique","jean ",20,"romantique");
+              //  lc.modifierLivre(l2, 1);
+         // for (Livre p1 : lc.listerLivres()) {
+          //  System.out.println(p1);}
+      //    lc.supprimerLivre(l);
+          
     }
     
 }
