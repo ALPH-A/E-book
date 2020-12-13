@@ -19,6 +19,7 @@ public class Commande {
     private Date dateCommande;
     private int clientId;
     private int livreId;
+    private String state;
 
     public Commande(double prixTotal, Date dateCommande, int clientId, int livreId) {
         this.prixTotal = prixTotal;
@@ -27,13 +28,24 @@ public class Commande {
         this.livreId = livreId;
     }
 
-    public Commande(int id, double prixTotal, Date dateCommande, int clientId, int livreId) {
+    public Commande(int id, double prixTotal, Date dateCommande, int clientId, int livreId, String state) {
         this.id = id;
         this.prixTotal = prixTotal;
         this.dateCommande = dateCommande;
         this.clientId = clientId;
         this.livreId = livreId;
+        this.state = state;
     }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    
 
     
     
