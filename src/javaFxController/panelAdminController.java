@@ -70,12 +70,12 @@ public class panelAdminController implements Initializable {
     @FXML
     private TableColumn<orderTable, String> fullName;
     @FXML
-    private TableColumn<orderTable,String> bookTitle;
+    private TableColumn<orderTable, String> bookTitle;
     @FXML
     private TableColumn<orderTable, Float> prixTotal;
     @FXML
     private TableColumn<orderTable, String> orderState;
-    
+
     ObservableList<orderTable> oblist = FXCollections.observableArrayList();
     @FXML
     private Label totalOrders;
@@ -85,9 +85,6 @@ public class panelAdminController implements Initializable {
     private Label pedingOrder;
     @FXML
     private Label orderDelivered;
-    
-    
-    
 
     /**
      * Initializes the controller class.
@@ -98,25 +95,26 @@ public class panelAdminController implements Initializable {
         setOrderStats();
         //fill orderTable with data from database
         fillOrderTable();
-        
-        
-        
-    }    
+        pnlOrders.setVisible(false);
+
+    }
 
     @FXML
     private void handleClicks(ActionEvent event) {
+
     }
-    public void fillOrderTable(){
+
+    public void fillOrderTable() {
         commandeController c = new commandeController();
         userServices u = new userServices();
         livreServices l = new livreServices();
-        
-        for(Commande p1 : c.listerCommandes()){
-            
+
+        for (Commande p1 : c.listerCommandes()) {
+
             User user1 = u.getUserById(p1.getClientId());
             Livre livre1 = l.getLivreById(p1.getLivreId());
-            oblist.add(new orderTable(p1.getId(), p1.getPrixTotal(), p1.getClientId(), p1.getLivreId(), p1.getDateCommande(), user1.getNom()+" "+user1.getPrenom(), livre1.getTitre(),p1.getState()));
-            
+            oblist.add(new orderTable(p1.getId(), p1.getPrixTotal(), p1.getClientId(), p1.getLivreId(), p1.getDateCommande(), user1.getNom() + " " + user1.getPrenom(), livre1.getTitre(), p1.getState()));
+
         }
         commandeID.setCellValueFactory(new PropertyValueFactory("commandeID"));
         clientID.setCellValueFactory(new PropertyValueFactory("clientID"));
@@ -126,16 +124,26 @@ public class panelAdminController implements Initializable {
         fullName.setCellValueFactory(new PropertyValueFactory("fullName"));
         bookTitle.setCellValueFactory(new PropertyValueFactory("bookTitle"));
         orderState.setCellValueFactory(new PropertyValueFactory("state"));
-        
-        
+
         orderTable.setItems(oblist);
     }
-    public void setOrderStats(){
+
+    public void setOrderStats() {
         commandServices cs = new commandServices();
         totalOrders.setText(cs.countCommandes());
         orderOnHold.setText(cs.countCommandesOnHold());
         orderDelivered.setText(cs.countCommandesDelivered());
         pedingOrder.setText(cs.countCommandesPeding());
     }
-    
+    @FXML
+    public void setPaneOrderOn(ActionEvent event) {
+        pnlOverview.setVisible(false);
+        pnlOrders.setVisible(true);
+    }
+    @FXML
+    public void setPaneOverviewOn(ActionEvent event) {
+        pnlOrders.setVisible(false);
+        pnlOverview.setVisible(true);
+    }
+
 }
