@@ -82,7 +82,7 @@ public class commandeController {
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
                 
-                Commande c = new Commande(rs.getInt(1), rs.getFloat(2), rs.getDate(3), rs.getInt(4), rs.getInt(5));
+                Commande c = new Commande(rs.getInt(1), rs.getFloat(2), rs.getDate(3), rs.getInt(4), rs.getInt(5),rs.getString(6));
                 
                 myList.add(c);
             }
