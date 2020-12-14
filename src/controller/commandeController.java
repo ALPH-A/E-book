@@ -46,7 +46,7 @@ public class commandeController {
                     .prepareStatement(requete);
             pst.setInt(1, commandeId);
             pst.executeUpdate();
-            System.out.println("Personne supprimée");
+            System.out.println("Commande supprimée");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

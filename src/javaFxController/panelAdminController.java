@@ -15,6 +15,7 @@ import javaFxClasses.orderTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -75,6 +76,8 @@ public class panelAdminController implements Initializable {
     private TableColumn<orderTable, Float> prixTotal;
     @FXML
     private TableColumn<orderTable, String> orderState;
+    @FXML
+    private TableColumn<orderTable, Button> action;
 
     ObservableList<orderTable> oblist = FXCollections.observableArrayList();
     @FXML
@@ -85,6 +88,7 @@ public class panelAdminController implements Initializable {
     private Label pedingOrder;
     @FXML
     private Label orderDelivered;
+    
 
     /**
      * Initializes the controller class.
@@ -96,6 +100,8 @@ public class panelAdminController implements Initializable {
         //fill orderTable with data from database
         fillOrderTable();
         pnlOrders.setVisible(false);
+        
+      
 
     }
 
@@ -124,6 +130,7 @@ public class panelAdminController implements Initializable {
         fullName.setCellValueFactory(new PropertyValueFactory("fullName"));
         bookTitle.setCellValueFactory(new PropertyValueFactory("bookTitle"));
         orderState.setCellValueFactory(new PropertyValueFactory("state"));
+        action.setCellValueFactory(new PropertyValueFactory("action"));
 
         orderTable.setItems(oblist);
     }
