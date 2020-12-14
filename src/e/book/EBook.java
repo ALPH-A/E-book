@@ -40,7 +40,7 @@ public class EBook extends Application {
     
     public void start(Stage primaryStage) {
         try {
-            URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
+            URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/LoginInterface.fxml");
             Parent root = FXMLLoader.load(fxmlUrl);
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
