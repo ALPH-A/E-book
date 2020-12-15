@@ -5,6 +5,7 @@
  */
 package e.book;
 
+import controller.avisController;
 import controller.commandeController;
 import controller.livreController;
 import dbConnection.MyDataBase;
@@ -59,8 +60,11 @@ public class EBook extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        commandServices c = new commandServices();
-        System.out.println(c.countCommandesOnHold());
+        System.out.println("sds");
+        avisController ac = new avisController();
+        ac.supprimerAvis(1);
+//        commandServices c = new commandServices();
+//        System.out.println(c.countCommandesOnHold());
 //        livreServices l = new livreServices();
 //        System.out.println(l.getLivreById(1));
 
