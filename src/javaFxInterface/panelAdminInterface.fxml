@@ -194,19 +194,17 @@
                      <content>
                         <TableView fx:id="orderTable" editable="true" prefHeight="325.0" prefWidth="734.0" stylesheets="@../style/orderTable.css">
                           <columns>
-                            <TableColumn fx:id="commandeID" prefWidth="75.0" text="Id" />
-                            <TableColumn fx:id="clientID" prefWidth="75.0" text="clientID" />
-                              <TableColumn fx:id="fullName" prefWidth="75.0" text="fullName" />
-                              <TableColumn fx:id="livreID" prefWidth="75.0" text="bookID" />
-                              <TableColumn fx:id="bookTitle" prefWidth="75.0" text="bookTitle" />
-                              <TableColumn fx:id="dateCommande" prefWidth="75.0" text="orderDate" />
-                              <TableColumn fx:id="prixTotal" prefWidth="75.0" text="Prize" />
-                              <TableColumn fx:id="orderState" prefWidth="75.0" text="state" />
-                              <TableColumn fx:id="action" prefWidth="75.0" text="Action" />
+                            <TableColumn fx:id="commandeID" prefWidth="39.0" text="Id" />
+                            <TableColumn fx:id="clientID" prefWidth="51.0" text="clientID" />
+                              <TableColumn fx:id="fullName" onEditCommit="#onChanged" prefWidth="111.0" text="fullName" />
+                              <TableColumn fx:id="livreID" prefWidth="51.0" text="bookID" />
+                              <TableColumn fx:id="bookTitle" onEditCommit="#onChanged" prefWidth="105.0" text="bookTitle" />
+                              <TableColumn fx:id="dateCommande" prefWidth="112.0" text="orderDate" />
+                              <TableColumn fx:id="prixTotal" onEditCommit="#onChanged" prefWidth="68.0" text="Prize" />
+                              <TableColumn fx:id="orderState" prefWidth="67.0" text="state" />
+                              <TableColumn fx:id="action" prefWidth="71.0" text="Delete" />
+                              <TableColumn fx:id="validate" prefWidth="58.0" text="Validate" />
                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
                         </TableView>
                      </content>
                   </ScrollPane>

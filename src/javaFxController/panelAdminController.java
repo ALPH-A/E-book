@@ -11,11 +11,14 @@ import entity.Commande;
 import entity.Livre;
 import entity.User;
 import java.io.IOException;
+import static java.lang.Double.parseDouble;
+import static java.lang.Float.parseFloat;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 import javaFxClasses.orderTable;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,8 +30,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -89,11 +95,13 @@ public class panelAdminController implements Initializable {
     @FXML
     private TableColumn<orderTable, String> bookTitle;
     @FXML
-    private TableColumn<orderTable, Float> prixTotal;
+    private TableColumn<orderTable, String> prixTotal;
     @FXML
     private TableColumn<orderTable, String> orderState;
     @FXML
     private TableColumn<orderTable, Button> action;
+    @FXML
+    private TableColumn<orderTable, Button> validate;
 
     public static ObservableList<orderTable> oblist = FXCollections.observableArrayList();
     @FXML
@@ -116,6 +124,7 @@ public class panelAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        commandeController c = new commandeController();
         //intialise total order number
         pnlOrders.setVisible(false);
         order = orderTable;
@@ -127,6 +136,20 @@ public class panelAdminController implements Initializable {
         setOrderStats();
         //fill orderTable with data from database
         fillOrderTable();
+        order.setEditable(true);
+        prixTotal.setCellFactory(TextFieldTableCell.forTableColumn());
+        
+        fullName.setCellFactory(TextFieldTableCell.forTableColumn());
+        bookTitle.setCellFactory(TextFieldTableCell.forTableColumn());
+        
+        
+
+
+   
+    
+
+          
+        
         
         
 
@@ -146,7 +169,8 @@ public class panelAdminController implements Initializable {
 
             User user1 = u.getUserById(p1.getClientId());
             Livre livre1 = l.getLivreById(p1.getLivreId());
-            oblist.add(new orderTable(p1.getId(), p1.getPrixTotal(), p1.getClientId(), p1.getLivreId(), p1.getDateCommande(), user1.getNom() + " " + user1.getPrenom(), livre1.getTitre(), p1.getState()));
+            
+            oblist.add(new orderTable(p1.getId(), String.valueOf(p1.getPrixTotal()), p1.getClientId(), p1.getLivreId(), p1.getDateCommande(), user1.getNom() + " " + user1.getPrenom(), livre1.getTitre(), p1.getState()));
 
         }
         commandeID.setCellValueFactory(new PropertyValueFactory("commandeID"));
@@ -158,6 +182,7 @@ public class panelAdminController implements Initializable {
         bookTitle.setCellValueFactory(new PropertyValueFactory("bookTitle"));
         orderState.setCellValueFactory(new PropertyValueFactory("state"));
         action.setCellValueFactory(new PropertyValueFactory("action"));
+        validate.setCellValueFactory(new PropertyValueFactory("validate"));
 
         order.setItems(oblist);
     }
@@ -181,6 +206,17 @@ public class panelAdminController implements Initializable {
         pnlOrders.setVisible(false);
         pnlOverview.setVisible(true);
 
+    }
+    @FXML
+    public void onChanged(CellEditEvent edditedCell) {
+        orderTable selectedCells = order.getSelectionModel().getSelectedItem();
+        selectedCells.setPrixTotal(edditedCell.getNewValue().toString());
+        String n = edditedCell.getNewValue().toString();
+        Float number = parseFloat(n);
+        commandeController c = new commandeController();
+        long millis=System.currentTimeMillis();  
+        java.sql.Date currentDate=new java.sql.Date(millis);
+        c.modifierCommande(number, currentDate, 1, 1, 56);
     }
 
 }

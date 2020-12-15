@@ -41,7 +41,7 @@ public class orderTable {
 
     private int commandeID;
 
-    private double prixTotal;
+    private String prixTotal;
 
     private int clientID;
 
@@ -56,6 +56,15 @@ public class orderTable {
     private String state;
 
     private Button action;
+    private Button validate;
+
+    public Button getValidate() {
+        return validate;
+    }
+
+    public void setValidate(Button validate) {
+        this.validate = validate;
+    }
     
     
 
@@ -78,11 +87,11 @@ public class orderTable {
         this.commandeID = commandeID;
     }
 
-    public double getPrixTotal() {
+    public String getPrixTotal() {
         return prixTotal;
     }
 
-    public void setPrixTotal(double prixTotal) {
+    public void setPrixTotal(String prixTotal) {
         this.prixTotal = prixTotal;
     }
 
@@ -126,8 +135,9 @@ public class orderTable {
         this.bookTitle = bookTitle;
     }
 
-    public orderTable(int commandeID, double prixTotal, int clientID, int livreID, Date dateCommande, String fullName, String bookTitle, String state) {
+    public orderTable(int commandeID, String prixTotal, int clientID, int livreID, Date dateCommande, String fullName, String bookTitle, String state) {
         FileInputStream input = null;
+        FileInputStream input2 = null;
         try {
             this.commandeID = commandeID;
             this.prixTotal = prixTotal;
@@ -155,6 +165,21 @@ public class orderTable {
                 
                 
             });
+            input2 = new FileInputStream("C:/Users/nizar/Desktop/E-book/src/images/edit.png");
+            Image image1 = new Image(input2);
+            ImageView imageView1 = new ImageView(image1);
+            this.validate = new Button("", imageView1);
+            imageView1.setFitHeight(20);
+            imageView1.setFitWidth(20);
+            this.validate.setStyle("-fx-background-color: transparent; ");
+            this.validate.setMaxSize(100, 200);
+            this.validate.setOnAction(e -> {
+                c.setCommandeSended(commandeID);
+                pac.order.getItems().clear();
+                pac.setOrderStats();
+                pac.fillOrderTable();
+                });
+            
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(orderTable.class.getName()).log(Level.SEVERE, null, ex);

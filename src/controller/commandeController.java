@@ -91,4 +91,20 @@ public class commandeController {
         }
         return myList;
         }
+    public void setCommandeSended(int commandeId) {
+
+        
+    try {
+            String requete = "UPDATE `commande` SET `state`=? WHERE `id`=?";
+
+            PreparedStatement pst = new MyDataBase().getCnx()
+                    .prepareStatement(requete);
+            pst.setString(1, "Pending");
+            pst.setInt(2, commandeId);
+            pst.executeUpdate();
+            System.out.println("Commande ajoutée!");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }
