@@ -38,7 +38,12 @@ public class User {
         this.adresse = adresse;
     }
 
-    public User(String text, String text0) {
+    public User(String password, String text) {
+        this.password=password;
+        this.email=text;
+    }
+
+    public User() {
     }
 
     public int getId() {

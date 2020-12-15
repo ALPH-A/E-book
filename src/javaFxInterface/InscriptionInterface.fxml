@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" stylesheets="@../style/panelAdmin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.InscriptionController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="197.0" prefWidth="300.0" styleClass="parent" stylesheets="@../style/panelAdmin.css">
+         <children>
+            <ImageView fitHeight="167.0" fitWidth="252.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/button-admin_panel-admin_dashboard-control_panel-software-512.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutY="197.0" prefHeight="403.0" prefWidth="300.0" styleClass="parent">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="signinid" mnemonicParsing="false" onAction="#interfacelogin" prefHeight="54.0" prefWidth="249.0" text="Sign In" textFill="#416e6e">
+                     <font>
+                        <Font name="Times New Roman" size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="signupid" mnemonicParsing="false" onAction="#oninscription" prefHeight="54.0" prefWidth="249.0" text="Sign Up" textFill="#416e6e">
+                     <font>
+                        <Font name="Times New Roman" size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label layoutX="480.0" layoutY="35.0" text="EbooK INSCRIPTION" textAlignment="CENTER" textFill="#45a7bf">
+         <font>
+            <Font name="Times New Roman Bold" size="42.0" />
+         </font>
+      </Label>
+      <Button fx:id="Inscriptionid" layoutX="599.0" layoutY="488.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="31.0" prefWidth="179.0" text="Sign Up" textFill="#45a7bf">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelmsg" layoutX="535.0" layoutY="543.0" prefHeight="31.0" prefWidth="308.0" textAlignment="CENTER" />
+      <TextField fx:id="nom" layoutX="387.0" layoutY="126.0" prefHeight="31.0" prefWidth="249.0" promptText="First name" />
+      <TextField fx:id="prenom" layoutX="727.0" layoutY="126.0" prefHeight="31.0" prefWidth="245.0" promptText="Last name" />
+      <TextField fx:id="numeroTele" layoutX="387.0" layoutY="188.0" prefHeight="31.0" prefWidth="249.0" promptText="Phone number" />
+      <TextField layoutX="387.0" layoutY="248.0" prefHeight="31.0" prefWidth="585.0" promptText="Adress" />
+      <TextField fx:id="email" layoutX="387.0" layoutY="307.0" prefHeight="31.0" prefWidth="320.0" promptText="Email" />
+      <PasswordField fx:id="password" layoutX="387.0" layoutY="368.0" prefHeight="31.0" prefWidth="320.0" promptText="Password" />
+      <PasswordField fx:id="confirmpassword" layoutX="387.0" layoutY="430.0" prefHeight="31.0" prefWidth="320.0" promptText="Confirm Password" />
+   </children>
+</AnchorPane>
