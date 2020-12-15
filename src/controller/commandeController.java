@@ -46,7 +46,7 @@ public class commandeController {
                     .prepareStatement(requete);
             pst.setInt(1, commandeId);
             pst.executeUpdate();
-            System.out.println("Personne supprimée");
+            System.out.println("Commande supprimée");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -82,7 +82,7 @@ public class commandeController {
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
                 
-                Commande c = new Commande(rs.getInt(1), rs.getFloat(2), rs.getDate(3), rs.getInt(4), rs.getInt(5));
+                Commande c = new Commande(rs.getInt(1), rs.getFloat(2), rs.getDate(3), rs.getInt(4), rs.getInt(5),rs.getString(6));
                 
                 myList.add(c);
             }
@@ -91,4 +91,20 @@ public class commandeController {
         }
         return myList;
         }
+    public void setCommandeSended(int commandeId) {
+
+        
+    try {
+            String requete = "UPDATE `commande` SET `state`=? WHERE `id`=?";
+
+            PreparedStatement pst = new MyDataBase().getCnx()
+                    .prepareStatement(requete);
+            pst.setString(1, "Pending");
+            pst.setInt(2, commandeId);
+            pst.executeUpdate();
+            System.out.println("Commande ajoutée!");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

@@ -38,6 +38,14 @@ public class User {
         this.adresse = adresse;
     }
 
+    public User(String password, String text) {
+        this.password=password;
+        this.email=text;
+    }
+
+    public User() {
+    }
+
     public int getId() {
         return id;
     }
