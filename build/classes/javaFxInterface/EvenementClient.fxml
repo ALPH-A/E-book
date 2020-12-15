@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1049.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxInterface.EvenementClientController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="8.0" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;">
+         <children>
+            <Button fx:id="btn_retour" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#retourPage" prefHeight="42.0" prefWidth="259.0" stylesheets="@../style/style.css" text="Retour">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_Home_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnSettings" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../style/style.css" text="Evenement">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8_Slider__32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <TableView fx:id="table" layoutX="273.0" layoutY="141.0" onMouseClicked="#handlemouseclicked" prefHeight="378.0" prefWidth="767.0" stylesheets="@../style/event.css">
+        <columns>
+          <TableColumn fx:id="col_titre" prefWidth="75.0" text="Titre" />
+          <TableColumn fx:id="col_lieu" prefWidth="140.80007934570312" text="Lieu" />
+            <TableColumn fx:id="col_description" prefWidth="364.8000183105469" text="Description" />
+            <TableColumn fx:id="col_date" prefWidth="100.800048828125" text="date" />
+            <TableColumn fx:id="col_image" prefWidth="82.39995117187505" text="Image" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

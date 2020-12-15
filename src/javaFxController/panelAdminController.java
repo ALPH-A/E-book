@@ -5,14 +5,17 @@
  */
 package javaFxController;
 
+import controller.EvenementController;
 import controller.commandeController;
 import e.book.EBook;
 import entity.Commande;
 import entity.Livre;
 import entity.User;
 import java.io.IOException;
+
 import static java.lang.Double.parseDouble;
 import static java.lang.Float.parseFloat;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
@@ -26,7 +29,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+
 import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -59,8 +64,6 @@ public class panelAdminController implements Initializable {
     private Button btnMenus;
     @FXML
     private Button btnCustomers;
-    @FXML
-    private Button btnPackages;
     @FXML
     private Button btnSettings;
     @FXML
@@ -112,6 +115,8 @@ public class panelAdminController implements Initializable {
     private Label pedingOrder;
     @FXML
     private Label orderDelivered;
+    @FXML
+    private Button id_evenement;
 
     public static TableView<orderTable> order;
     public static Label totalOrders1;
@@ -201,7 +206,10 @@ public class panelAdminController implements Initializable {
         pnlOrders.setVisible(true);
     }
 
+
     @FXML
+
+
     public void setPaneOverviewOn(ActionEvent event) {
         pnlOrders.setVisible(false);
         pnlOverview.setVisible(true);
@@ -217,6 +225,13 @@ public class panelAdminController implements Initializable {
         long millis=System.currentTimeMillis();  
         java.sql.Date currentDate=new java.sql.Date(millis);
         c.modifierCommande(number, currentDate, 1, 1, 56);
+    }
+
+    @FXML
+    private void gestionEvenement(ActionEvent event) throws IOException {
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("../javaFxInterface/Evenement.fxml"));
+            Parent root2=loader.load();
+            orderTable.getScene().setRoot(root2);
     }
 
 }
