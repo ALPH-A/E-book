@@ -13,6 +13,13 @@ public class Avis {
     private int id;
     private String description;
 
+    public Avis(int id, String description, int userId, int livreId) {
+        this.id = id;
+        this.description = description;
+        this.userId = userId;
+        this.livreId = livreId;
+    }
+
     public Avis(String description, int userId, int livreId) {
         this.description = description;
         this.userId = userId;
