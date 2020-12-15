@@ -20,15 +20,20 @@ import javafx.stage.Stage;
  * @author saifeddinebensassi
  */
 public class Login extends Application{
+    public static Stage stage2;
 
-    @Override
+    public Login() {
+    }
+
+    
     public void start(Stage stage)  {
       try {
+           stage2=stage;
             URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/LoginInterface.fxml");
             Parent root = FXMLLoader.load(fxmlUrl);
             Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            stage2.setScene(scene);
+            stage2.show();
         } catch (IOException ex) {
             Logger.getLogger(ex.getMessage());
         }
