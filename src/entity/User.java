@@ -38,6 +38,9 @@ public class User {
         this.adresse = adresse;
     }
 
+    public User(String text, String text0) {
+    }
+
     public int getId() {
         return id;
     }

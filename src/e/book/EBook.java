@@ -42,8 +42,12 @@ public class EBook extends Application {
     
     public void start(Stage primaryStage) {
         try {
+
             stage=primaryStage;
             URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
+
+            
+
             Parent root = FXMLLoader.load(fxmlUrl);
             Scene scene = new Scene(root);
             stage.setScene(scene);
