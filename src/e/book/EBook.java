@@ -37,17 +37,24 @@ import services.userServices;
  */
 public class EBook extends Application {
     
+    private static Stage stage;
+
     
     public void start(Stage primaryStage) {
         try {
+            stage=primaryStage;
             URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
             Parent root = FXMLLoader.load(fxmlUrl);
             Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(ex.getMessage());
         }
+    }
+
+    public static Stage getStage() {
+        return stage;
     }
 
     /**

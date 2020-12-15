@@ -6,18 +6,24 @@
 package javaFxController;
 
 import controller.commandeController;
+import e.book.EBook;
 import entity.Commande;
 import entity.Livre;
 import entity.User;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 import javaFxClasses.orderTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -25,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.commandServices;
 import services.livreServices;
 import services.userServices;
@@ -60,6 +67,15 @@ public class panelAdminController implements Initializable {
     private Pane pnlOverview;
     @FXML
     private TableView<orderTable> orderTable;
+
+    public TableView<orderTable> getOrderTable() {
+        return orderTable;
+    }
+
+    public void setOrderTable(TableView<orderTable> orderTable) {
+        this.orderTable = orderTable;
+    }
+
     @FXML
     private TableColumn<orderTable, Integer> commandeID;
     @FXML
@@ -79,7 +95,7 @@ public class panelAdminController implements Initializable {
     @FXML
     private TableColumn<orderTable, Button> action;
 
-    ObservableList<orderTable> oblist = FXCollections.observableArrayList();
+    public static ObservableList<orderTable> oblist = FXCollections.observableArrayList();
     @FXML
     private Label totalOrders;
     @FXML
@@ -88,7 +104,12 @@ public class panelAdminController implements Initializable {
     private Label pedingOrder;
     @FXML
     private Label orderDelivered;
-    
+
+    public static TableView<orderTable> order;
+    public static Label totalOrders1;
+    public static Label orderOnHold1;
+    public static Label pedingOrder1;
+    public static Label orderDelivered1;
 
     /**
      * Initializes the controller class.
@@ -96,12 +117,18 @@ public class panelAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //intialise total order number
+        pnlOrders.setVisible(false);
+        order = orderTable;
+        totalOrders1 = totalOrders;
+        orderOnHold1 = orderOnHold;
+        pedingOrder1 = pedingOrder;
+        orderDelivered1 = orderDelivered;
+
         setOrderStats();
         //fill orderTable with data from database
         fillOrderTable();
-        pnlOrders.setVisible(false);
         
-      
+        
 
     }
 
@@ -132,25 +159,28 @@ public class panelAdminController implements Initializable {
         orderState.setCellValueFactory(new PropertyValueFactory("state"));
         action.setCellValueFactory(new PropertyValueFactory("action"));
 
-        orderTable.setItems(oblist);
+        order.setItems(oblist);
     }
 
     public void setOrderStats() {
         commandServices cs = new commandServices();
-        totalOrders.setText(cs.countCommandes());
-        orderOnHold.setText(cs.countCommandesOnHold());
-        orderDelivered.setText(cs.countCommandesDelivered());
-        pedingOrder.setText(cs.countCommandesPeding());
+        totalOrders1.setText(cs.countCommandes());
+        orderOnHold1.setText(cs.countCommandesOnHold());
+        orderDelivered1.setText(cs.countCommandesDelivered());
+        pedingOrder1.setText(cs.countCommandesPeding());
     }
+
     @FXML
     public void setPaneOrderOn(ActionEvent event) {
         pnlOverview.setVisible(false);
         pnlOrders.setVisible(true);
     }
+
     @FXML
     public void setPaneOverviewOn(ActionEvent event) {
         pnlOrders.setVisible(false);
         pnlOverview.setVisible(true);
+
     }
 
 }

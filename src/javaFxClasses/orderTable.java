@@ -6,6 +6,7 @@
 package javaFxClasses;
 
 import controller.commandeController;
+import e.book.EBook;
 import entity.Commande;
 import entity.User;
 
@@ -21,15 +22,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javaFxController.panelAdminController;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.control.TableView;
 
 /**
  *
  * @author nizar
  */
 public class orderTable {
+    
     
 
     private int commandeID;
@@ -50,7 +57,17 @@ public class orderTable {
 
     private Button action;
     
+    
+
+    public orderTable() {
+    }
+
+    
+    
     commandeController c = new commandeController();
+    panelAdminController pac = new panelAdminController();
+    EBook ebook = new EBook();
+    
     
 
     public int getCommandeID() {
@@ -129,7 +146,15 @@ public class orderTable {
             this.action.setStyle("-fx-background-color: transparent; ");
             this.action.setMaxSize(100, 200);
             //add action to button on click to delete commande from data base
-            this.action.setOnAction(e -> {c.supprimerCommande(this.commandeID);});
+            this.action.setOnAction(e -> {
+                c.supprimerCommande(commandeID);
+                pac.order.getItems().clear();
+                pac.setOrderStats();
+                pac.fillOrderTable();
+                
+                
+                
+            });
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(orderTable.class.getName()).log(Level.SEVERE, null, ex);
