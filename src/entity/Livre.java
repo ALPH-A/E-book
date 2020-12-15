@@ -17,6 +17,10 @@ public class Livre {
     private String auteur ;
     private double prix;
     private String genre;
+    private String image;
+   private double tauxPromo;
+      private double prixSolde;
+
 
     public Livre(int id, String titre, String description, String auteur, double prix, String genre) {
         this.id = id;
@@ -25,8 +29,53 @@ public class Livre {
         this.auteur = auteur;
         this.prix = prix;
         this.genre = genre;
+       
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public double getPrixSolde() {
+        return prixSolde;
+    }
+
+    public void setPrixSolde(double prixSolde) {
+        this.prixSolde = prixSolde;
+    }
+     public Livre(int id, double prix,double tauxPromo) {
+        this.id = id;
+        this.tauxPromo=tauxPromo;
+        this.prix = prix;
+    }
+
+   
+        
+ public Livre( String titre, String description, String auteur, double prix, String genre,double tauxPromo,double prixSolde) {
+       
+        this.titre = titre;
+        this.description = description;
+        this.auteur = auteur;
+        this.prix = prix;
+        this.genre = genre;
+        this.tauxPromo=tauxPromo;
+        this.prixSolde =prixSolde;
+    }
+ public Livre( String titre, String description, String auteur, double prix, String genre,double tauxPromo,double prixSolde,String image) {
+       
+        this.titre = titre;
+        this.description = description;
+        this.auteur = auteur;
+        this.prix = prix;
+        this.genre = genre;
+        this.tauxPromo=tauxPromo;
+        this.prixSolde =prixSolde;
+        this.image=image;
+    }
     public String getGenre() {
         return genre;
     }
@@ -77,10 +126,18 @@ public class Livre {
     public void setPrix(double prix) {
         this.prix = prix;
     }
+ public double getTauxPromo() {
+        return tauxPromo;
+    }
+
+    public void setTauxPromo(double tauxPromo) {
+        this.tauxPromo = tauxPromo;
+    }
 
     @Override
     public String toString() {
-        return "Livre{" + "id=" + id + ", titre=" + titre + ", description=" + description + ", auteur=" + auteur + ", prix=" + prix + ", genre=" + genre + '}';
+        return "Livre{" + "id=" + id + ", titre=" + titre + ", description=" + description + ", auteur=" + auteur + ", prix=" + prix + ", genre=" + genre + ", image=" + image + ", tauxPromo=" + tauxPromo + ", prixSolde=" + prixSolde + '}';
     }
 
+    
 }

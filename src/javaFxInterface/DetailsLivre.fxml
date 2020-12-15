@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0"  stylesheets="@../style/style.css"  xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.DetailsLivreController">
+   <children>
+        <VBox layoutX="251.0" layoutY="78.0" prefHeight="208.0" prefWidth="78.0" spacing="15.0">
+               <children>
+                 
+                        <Label text="Titre">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+                  <Label text="Description">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+                  <Label text="Auteur">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+                  <Label text="Genre">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+                  <Label text="Prix">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="342.0" layoutY="78.0" prefHeight="200.0" prefWidth="135.0" spacing="10.0">
+               <children>
+                
+                        <TextField fx:id="tfTitre" editable="false" />
+                  <TextField fx:id="tfDescription" editable="false" />
+                  <TextField fx:id="tfAuteur" editable="false" />
+                  <TextField fx:id="tfGenre" editable="false" />
+                  <TextField fx:id="tfPrix" editable="false" />
+               </children>
+            </VBox>
+      <Text layoutX="146.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Livre Details">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_return" layoutX="36.0" layoutY="336.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+      <ImageView fx:id="iv_image" fitHeight="150.0" fitWidth="200.0" layoutX="18.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+         
+</AnchorPane>

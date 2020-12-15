@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="906.0"  stylesheets="@../style/style.css"    styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.GestionLivreController">
+   <children>
+    
+         <VBox layoutX="11.0" layoutY="93.0" prefHeight="208.0" prefWidth="78.0" spacing="15.0">
+            <children>
+              
+                     <Label text="Titre">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label text="Description">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label text="Auteur">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label text="Genre">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+               <Label text="Prix">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Label>
+            </children>
+         </VBox>
+         <VBox layoutX="89.0" layoutY="93.0" prefHeight="200.0" prefWidth="135.0" spacing="10.0">
+            <children>
+             
+                     <TextField fx:id="tfTitre" />
+               <TextField fx:id="tfDescription" />
+               <TextField fx:id="tfAuteur" />
+               <TextField fx:id="tfGenre" />
+               <TextField fx:id="tfPrix" />
+
+            </children>
+         </VBox>
+         
+         <TableView fx:id="tvBooks" layoutX="250.0" layoutY="97.0" onMouseClicked="#handlemouseclicked" onSort="#showBooks" prefHeight="192.0" prefWidth="523.0">
+           <columns>
+             <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+             <TableColumn fx:id="colTitre" prefWidth="75.0" text="Titre" />
+               <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
+               <TableColumn fx:id="colAuteur" prefWidth="75.0" text="Auteur" />
+               <TableColumn fx:id="colGenre" prefWidth="75.0" text="Genre" />
+               <TableColumn fx:id="colPrix" prefWidth="75.0" text="Prix" />
+            <TableColumn fx:id="ColImage" prefWidth="75.0" text="Image" />
+           </columns>
+         </TableView>
+      <Button fx:id="btnModifier" layoutX="102.0" layoutY="361.0" mnemonicParsing="false" onAction="#modifierLivre" text="Modifier" />
+      <Button fx:id="btnSupprimer" layoutX="188.0" layoutY="361.0" mnemonicParsing="false" onAction="#supprimerLivre" text="Supprimer" />
+      <TextField fx:id="tf_Id" layoutX="89.0" layoutY="51.0" prefHeight="25.0" prefWidth="135.0" visible="false" />
+         <Button fx:id="btnAjouter" layoutX="23.0" layoutY="361.0" mnemonicParsing="false" onAction="#saveData" text="Ajouter" />
+      <Label layoutX="72.0" layoutY="26.0" text="Gestion Livre " textFill="#3d2ec9">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnPromo" layoutX="297.0" layoutY="397.0" mnemonicParsing="false" onAction="#promotionLivre" text="Ajouter Promotion" textFill="#d70e0e" />
+      <TextField fx:id="tfPromo" layoutX="132.0" layoutY="397.0" />
+      <Label layoutX="24.0" layoutY="401.0" text="Taux promotion :" />
+      <TextField fx:id="filterField" layoutX="436.0" layoutY="39.0" promptText="Chercher livre">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btn_importer" layoutX="217.0" layoutY="302.0" mnemonicParsing="false" onAction="#importImage" text="Importer" />
+      <ImageView fx:id="iv_image" fitHeight="79.0" fitWidth="101.0" layoutX="77.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+         <TextField fx:id="path" layoutX="303.0" layoutY="306.0" visible="false" />
+   </children>
+</AnchorPane>

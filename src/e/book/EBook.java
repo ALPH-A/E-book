@@ -18,6 +18,11 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import entity.Livre;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 /**
  *
@@ -25,33 +30,27 @@ import entity.Livre;
  */
 public class EBook extends Application {
     
-    @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+   
+   public void start(Stage primaryStage) {
+        try {
+            URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/gestionLivre.fxml");
+            Parent root = FXMLLoader.load(fxmlUrl);
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ex.getMessage());
+        }
     }
-
+     public static void main(String[] args) {
+        launch(args);
+        
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        launch(args);
+    //public static void main(String[] args) {
+     //  launch(args);
        // long millis=System.currentTimeMillis();  
         //java.sql.Date currentDate=new java.sql.Date(millis);
         //System.out.println(currentDate);
@@ -59,17 +58,17 @@ public class EBook extends Application {
 //        for(Commande p1 : c.listerCommandes()){
 //            System.out.println(p1.toString());
 //        }
-        MyDataBase md =new MyDataBase();
-        livreController lc = new livreController();
-        Livre l = new Livre (1,"LA VIE EN ROSE","il est magnifique","jean ",15.5,"romantique");
+       // MyDataBase md =new MyDataBase();
+       // livreController lc = new livreController();
+       // Livre l = new Livre (1,"LA VIE EN ROSE","il est magnifique","jean ",15.5,"romantique");
         
         //lc.ajouterLivre(l);
                 //Livre l2 = new Livre (1,"LA VIE "," magnifique","jean ",20,"romantique");
               //  lc.modifierLivre(l2, 1);
-         // for (Livre p1 : lc.listerLivres()) {
-          //  System.out.println(p1);}
+       // for (Livre p1 : lc.listerLivres()) {
+         //  System.out.println(p1);}
       //    lc.supprimerLivre(l);
           
-    }
+   // }
     
 }

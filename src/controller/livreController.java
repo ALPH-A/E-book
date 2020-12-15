@@ -26,8 +26,8 @@ public class livreController {
     public void ajouterLivre(Livre l){
         try {
 
-            String requete = "INSERT INTO livre (titre,description,auteur,prix,genre) "
-                    + "VALUES (?,?,?,?,?)";
+            String requete = "INSERT INTO livre (titre,description,auteur,prix,genre,tauxPromo,prixSolde,image) "
+                    + "VALUES (?,?,?,?,?,?,?,?)";
             
             PreparedStatement pst = new MyDataBase().getCnx()
                                            .prepareStatement(requete);
@@ -36,6 +36,9 @@ public class livreController {
             pst.setString(3, l.getAuteur());
             pst.setDouble(4, l.getPrix());
             pst.setString(5, l.getGenre());
+             pst.setDouble(6, l.getTauxPromo());
+             pst.setDouble(7, l.getPrixSolde());
+            pst.setString(8, l.getImage());
 
             pst.executeUpdate();
             System.out.println("Livre ajouté!");
@@ -60,6 +63,9 @@ public class livreController {
                 l.setAuteur(rs.getString(4));
                 l.setPrix(rs.getDouble(5));
                 l.setGenre(rs.getString(6));
+                l.setTauxPromo(rs.getDouble(7));
+                l.setPrixSolde(rs.getDouble(8));
+                 l.setImage(rs.getString(9));
 
                 myList.add(l);
             }

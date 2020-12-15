@@ -6,11 +6,9 @@
             <file>file:/C:/Users/Nizar/Desktop/E-book/src/dbConnection/MyDataBase.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/nizar/Desktop/E-book/src/e/book/EBook.java</file>
-            <file>file:/C:/Users/nizar/Desktop/E-book/src/style/style.css</file>
-            <file>file:/C:/Users/nizar/Desktop/E-book/src/entity/Commande.java</file>
-            <file>file:/C:/Users/nizar/Desktop/E-book/src/controller/commandeController.java</file>
-            <file>file:/C:/Users/nizar/Desktop/E-book/src/style/panelAdmin.css</file>
+            <file>file:/C:/Users/amine/Desktop/E-book/src/javaFxController/DetailsLivreController.java</file>
+            <file>file:/C:/Users/amine/Desktop/E-book/src/javaFxController/LivreClientController.java</file>
+            <file>file:/C:/Users/amine/Desktop/E-book/src/javaFxController/GestionLivreController.java</file>
         </group>
     </open-files>
 </project-private>
