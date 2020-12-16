@@ -6,16 +6,17 @@
             <file>file:/C:/Users/Nizar/Desktop/E-book/src/dbConnection/MyDataBase.java</file>
         </group>
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/amine/Desktop/Nouveau%20dossier%20(2)/E-book/src/e/book/EBook.java</file>
-=======
-            <file>file:/C:/Users/ahmed/Desktop/E-book/src/javaFxController/panelAdminController.java</file>
-            <file>file:/C:/Users/ahmed/Desktop/E-book/src/javaFxInterface/DetailsEvenementController.java</file>
-            <file>file:/C:/Users/ahmed/Desktop/E-book/src/javaFxInterface/EvenementClientController.java</file>
-            <file>file:/C:/Users/ahmed/Desktop/E-book/src/javaFxInterface/EvenementController.java</file>
-            <file>file:/C:/Users/ahmed/Desktop/E-book/src/e/book/EBook.java</file>
-            <file>file:/C:/Users/ahmed/Desktop/E-book/src/entity/Evenement.java</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/javaFxInterface/panelAdminInterface.fxml</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/entity/User.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/e/book/EBook.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/entity/Avis.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/services/avisServices.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/javaFxController/panelAdminController.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/controller/avisController.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/javaFxClasses/orderTable.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/style/overview.css</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/controller/commandeController.java</file>
+            <file>file:/C:/Users/nizar/Desktop/E-book/src/services/commandServices.java</file>
         </group>
     </open-files>
 </project-private>

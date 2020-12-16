@@ -68,7 +68,7 @@ public class commandeController {
             pst.setInt(4, livreID);
             pst.setInt(5, commandeId);
             pst.executeUpdate();
-            System.out.println("Commande ajoutée!");
+            System.out.println("Commande updated!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

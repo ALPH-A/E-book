@@ -143,7 +143,6 @@ public class panelAdminController implements Initializable {
         fillOrderTable();
         order.setEditable(true);
         prixTotal.setCellFactory(TextFieldTableCell.forTableColumn());
-        
         fullName.setCellFactory(TextFieldTableCell.forTableColumn());
         bookTitle.setCellFactory(TextFieldTableCell.forTableColumn());
         
@@ -219,12 +218,15 @@ public class panelAdminController implements Initializable {
     public void onChanged(CellEditEvent edditedCell) {
         orderTable selectedCells = order.getSelectionModel().getSelectedItem();
         selectedCells.setPrixTotal(edditedCell.getNewValue().toString());
+        int commandId = selectedCells.getCommandeID();
+        int livreId = selectedCells.getLivreID();
+        int clientId = selectedCells.getClientID();
         String n = edditedCell.getNewValue().toString();
         Float number = parseFloat(n);
         commandeController c = new commandeController();
         long millis=System.currentTimeMillis();  
         java.sql.Date currentDate=new java.sql.Date(millis);
-        c.modifierCommande(number, currentDate, 1, 1, 56);
+        c.modifierCommande(number, currentDate, clientId, livreId, commandId);
     }
 
     @FXML
