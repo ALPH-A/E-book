@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author nizar
  */
 public class avisServices {
-    public String countCommandes() {
+    public String countAvis() {
         String numberRow="";
         try {
             String requete = "SELECT COUNT(*) FROM avis";

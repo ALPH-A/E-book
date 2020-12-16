@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.ArchiveReclamationController">
+   <children>
+      <TableView fx:id="table_id" layoutX="2.0" layoutY="48.0" prefHeight="526.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="reclmationIdCol" prefWidth="116.0" text="reclamation ID" />
+          <TableColumn fx:id="sujet_Col" prefWidth="84.0" text="sujet" />
+            <TableColumn fx:id="userid" prefWidth="84.79998779296875" text="user_id" />
+            <TableColumn fx:id="dateStartCol" prefWidth="112.0" text="date de creation" />
+            <TableColumn fx:id="dateFinishCol" minWidth="0.0" prefWidth="156.00006103515625" text="date de traitment" />
+        </columns>
+         <columnResizePolicy>
+           
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

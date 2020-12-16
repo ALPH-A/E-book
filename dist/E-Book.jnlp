@@ -8,7 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="E-Book.jar" size="282874" download="eager" />
+=======
+    <jar href="E-Book.jar" size="294588" download="eager" />
+>>>>>>> 70a06619ec75b0c9c370f0327c4b3bd68e78c649
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="E-Book" >

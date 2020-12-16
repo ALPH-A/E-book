@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="javaFxController.ClientdetailsReclamationController">
+   <children>
+      <TextField fx:id="sujet" layoutX="144.0" layoutY="94.0" prefHeight="26.0" prefWidth="304.0" />
+      <Label layoutX="28.0" layoutY="98.0" prefHeight="18.0" prefWidth="147.0" text="reclamtion sujet" />
+      <TextArea fx:id="description" layoutX="97.0" layoutY="187.0" prefHeight="200.0" prefWidth="505.0" />
+      <Label layoutX="28.0" layoutY="158.0" prefHeight="18.0" prefWidth="176.0" text="reclamation description" />
+      <Button fx:id="btn_delete" layoutX="590.0" layoutY="426.0" mnemonicParsing="false" onAction="#delete" text="delete" />
+      <Button fx:id="btn_update" layoutX="431.0" layoutY="426.0" mnemonicParsing="false" onAction="#update" text="update" />
+      <Button fx:id="btn_retour" layoutX="64.0" layoutY="439.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+   </children>
+</AnchorPane>
