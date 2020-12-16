@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.SendReclamationController">
+   <children>
+      <StackPane layoutX="36.0" layoutY="-14.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+         <children>
+            <Pane fx:id="pnlNewCustomer" prefHeight="600.0" prefWidth="800.0">
+               <children>
+                  <Label fx:id="pnlNewCustomerTitle" layoutX="256.0" layoutY="65.0" text="Nouveau Reclamation" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnEnvoyer" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="397.0" layoutY="484.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleClicks" prefHeight="42.0" prefWidth="183.0" style="-fx-background-color: #006400;" stylesheets="@style.css" text="envoyer" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="btnAnnuler" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="22.0" layoutX="179.0" layoutY="484.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#handleAClicks" prefHeight="42.0" prefWidth="183.0" style="-fx-background-color: #FF0000;" stylesheets="@style.css" text="Annuler" textAlignment="CENTER" wrapText="true" />
+                  <Group layoutX="10.0" layoutY="10.0" />
+                  <TextField fx:id="sujet" layoutX="33.0" layoutY="188.0" prefHeight="27.0" prefWidth="678.0" promptText="the main problem" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em; -fx-text-inner-color: #B7C3D7; -fx-pref-width: 600px;" />
+                  <TextArea fx:id="description" layoutX="33.0" layoutY="274.0" prefHeight="200.0" prefWidth="678.0" promptText="details" style="-fx-border-color: yelllow; -fx-text-inner-color: red; -fx-background-color: #02030A;" styleClass="parent">
+                     <font>
+                        <Font name="Arial" size="13.0" />
+                     </font></TextArea>
+                  <Label layoutX="33.0" layoutY="152.0" prefHeight="19.0" prefWidth="59.0" text="sujet" textFill="#e7e5e5">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="33.0" layoutY="239.0" text="description" textFill="#e7e5e5">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>
