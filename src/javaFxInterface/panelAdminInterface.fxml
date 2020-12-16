@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.panelAdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.panelAdminController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -137,8 +137,43 @@
          <children>
             <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlOverview" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlOrders" prefHeight="554.0" prefWidth="793.0">
+           <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="deleteid" layoutX="639.0" layoutY="511.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="122.0" text="Delete" textFill="#2a73ff">
+                     <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                     </font></Button>
+                  <Label layoutX="14.0" layoutY="21.0" text="Ebook Customers" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="24.0" layoutY="169.0" prefHeight="320.0" prefWidth="746.0" stylesheets="@../style/orderTable.css">
+                     <content>
+                        <TableView fx:id="t" editable="true" onMouseClicked="#chargeimage" prefHeight="352.0" prefWidth="734.0" stylesheets="@../style/orderTable.css">
+                           <columns>
+                              <TableColumn fx:id="idcolumn" editable="false" prefWidth="52.0" text="Id" />
+                              <TableColumn fx:id="namecolumn" prefWidth="93.0" text="First name" />
+                              <TableColumn fx:id="lastnamecolumn" prefWidth="97.0" text="Last name" />
+                              <TableColumn fx:id="phonecolumn" prefWidth="115.0" text="Phone" />
+                              <TableColumn fx:id="emailcolumn" prefWidth="103.0" text="Email" />
+                              <TableColumn fx:id="adresscolumn" prefWidth="98.0" text="Adress" />
+                              <TableColumn fx:id="verificationcolumn" onEditCommit="#onChanged1" prefWidth="163.0" text="verification account" />
+                              <TableColumn fx:id="imagecolumn" minWidth="0.0" prefWidth="12.0" text="image" />
+                           </columns>
+                           <columnResizePolicy>
+                              
+                           </columnResizePolicy>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <TextField fx:id="rechercherid" layoutX="583.0" layoutY="102.0" promptText="rechercher" />
+                  <ImageView fx:id="imageuserid" fitHeight="150.0" fitWidth="200.0" layoutX="289.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <TextField fx:id="invisible" layoutX="583.0" layoutY="56.0" visible="false" />
+                  
+               </children>
+            </Pane>
+            <Pane fx:id="pnlOrders" prefHeight="554.0" prefWidth="793.0" visible="false">
                <children>
                   <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
                   <Label layoutX="57.0" layoutY="25.0" text="Ebook Orders" textFill="#e7e5e5">

@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" stylesheets="@../style/panelAdmin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javaFxController.LoginController">
    <children>
-      <VBox alignment="CENTER" prefHeight="197.0" prefWidth="300.0" styleClass="parent" stylesheets="@../style/panelAdmin.css">
+      <VBox alignment="CENTER" prefHeight="197.0" prefWidth="300.0" style="-fx-background-color: #05071F;" styleClass="parent" stylesheets="@../style/panelAdmin.css">
          <children>
             <ImageView fitHeight="167.0" fitWidth="252.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -23,7 +23,7 @@
             </ImageView>
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutY="197.0" prefHeight="403.0" prefWidth="300.0" styleClass="parent">
+      <VBox alignment="CENTER" layoutY="197.0" prefHeight="403.0" prefWidth="300.0" style="-fx-background-color: #05071F;" styleClass="parent">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>

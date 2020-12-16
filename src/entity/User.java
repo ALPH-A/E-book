@@ -14,9 +14,9 @@ public class User {
     private int id;
     private String nom, prenom, email, password, image, adresse, role;
     private int num_telephone;
-    private int verification_account;
+    private String verification_account;
 
-    public User(int id, String nom, String prenom, String email, String password, int num_telephone, int verification_account, String image, String adresse, String role) {
+    public User(int id, String nom, String prenom, String email, String password, int num_telephone, String verification_account, String image, String adresse, String role) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -44,6 +44,19 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(int id, String nom, String prenom, String email, String password, int num_telephone, String adresse, String image, String verification_account) {
+   
+    this.id=id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password=password;
+        this.num_telephone = num_telephone;
+        this.adresse = adresse;
+        this.image = image;
+        this.verification_account=verification_account;
     }
 
     public int getId() {
@@ -118,11 +131,11 @@ public class User {
         this.num_telephone = num_telephone;
     }
 
-    public int getVerification_account() {
+    public String getVerification_account() {
         return verification_account;
     }
 
-    public void setVerification_account(int verification_account) {
+    public void setVerification_account(String verification_account) {
         this.verification_account = verification_account;
     }
 

@@ -46,15 +46,13 @@ public class LoginController implements Initializable {
     private Button loginid;
     @FXML
     private Label labelmsg;
-    
-    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         // TODO
     }
 
@@ -64,21 +62,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private void oninscription(ActionEvent event) {
-//        try {
-//            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("javaFxInterface/InscriptionInterface.fxml"));
-//            Parent root = (Parent) fxmlloader.load();
-//            Stage stage = new Stage();
-//            stage.initStyle(StageStyle.DECORATED);
-//            stage.setTitle("Inscription");
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//        } catch (Exception e) {
-//            System.out.println("can't load new window");
-//        }
-            
+
         try {
-            
-            
+
             URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/InscriptionInterface.fxml");
             Parent root = FXMLLoader.load(fxmlUrl);
             Scene scene = new Scene(root);
@@ -88,48 +74,46 @@ public class LoginController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ex.getMessage());
         }
-        
+
     }
 
     @FXML
-    private void login(ActionEvent event)  {
+    private void login(ActionEvent event) {
         userServices ser = new userServices();
         User u = new User(password.getText(), username.getText());
-            String n = username.getText();
-            System.out.println(username.getText());
-        
+        String n = username.getText();
+        System.out.println(username.getText());
         try {
             boolean connexion = ser.connexion(u);
             System.out.println(connexion);
-            String role = ser.connexionRole(u);
-            if (username.getText().equals("admin@admin") && password.getText().equals("admin")){
-                 try {
-                        URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
-                        Parent root = FXMLLoader.load(fxmlUrl);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException ex) {
-                        Logger.getLogger(ex.getMessage());
-                    }
+            if (username.getText().equals("saifbensassi@admin") && password.getText().equals("admin")) {
+                
+                try {
+                    URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
+                    Parent root = FXMLLoader.load(fxmlUrl);
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(ex.getMessage());
+                }
             }
             if (connexion) {
-                
 
-                    try {
-                        URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
-                        Parent root = FXMLLoader.load(fxmlUrl);
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException ex) {
-                        Logger.getLogger(ex.getMessage());
-                    }
-                
+                try {
+                    URL fxmlUrl = this.getClass().getClassLoader().getResource("javaFxInterface/panelAdminInterface.fxml");
+                    Parent root = FXMLLoader.load(fxmlUrl);
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(ex.getMessage());
+                }
+
             } else {
                 labelmsg.setVisible(true);
             }

@@ -9,6 +9,7 @@ import dbConnection.MyDataBase;
 import entity.Commande;
 import entity.User;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,7 +31,7 @@ public class userServices {
             ResultSet rs = st.executeQuery(requete);
             while(rs.next()){
                 
-                 User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getString(10));
+                 User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
                 
                 return user;
             }
@@ -55,8 +56,8 @@ public class userServices {
 
     public boolean ajouter(User t) throws SQLException {
         boolean etat = false;
-        String requinsert = "INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `num_telephone`,`adresse`, `role` ,`verification_account` )"
-                + "VALUES (NULL, '" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getEmail() + "', '" + t.getPassword() + "', " + t.getNum_telephone() + ", '" + t.getAdresse() + "','" + t.getRole() + "',"+ t.getVerification_account()+");";
+        String requinsert = "INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `num_telephone`,`adresse`, `role` ,`verification_account` ,`image`  )"
+                + "VALUES (NULL, '" + t.getNom() + "', '" + t.getPrenom() + "', '" + t.getEmail() + "', '" + t.getPassword() + "', " + t.getNum_telephone() + ", '" + t.getAdresse() + "','" + t.getRole() + "',"+ t.getVerification_account()+",'"+t.getImage()+"')";
         int res = ste.executeUpdate(requinsert);
         if (res != 0) {
             etat = true;
@@ -126,12 +127,31 @@ public class userServices {
             String email = rs.getString(4);
             String password = rs.getString(5);
             int num_telephone = rs.getInt(6);
-            String adresse = rs.getString(7);
-            User u = new User(id, nom, prenom, email, password, num_telephone, adresse);
+            String adresse = rs.getString(9);
+            String image=rs.getString(8);
+            String verification_account=String.valueOf(rs.getInt(7));
+            User u = new User(id, nom, prenom, email, password, num_telephone, adresse, image, verification_account);
             u.setRole(rs.getString(8));
             listu.add(u);
         }
         return listu;
+    }
+    public void updateUserVerificationAccount(int number,int id) {
+
+        
+    try {
+            String requete = "UPDATE user SET `verification_account`=? WHERE `id`=?";
+
+            PreparedStatement pst = new MyDataBase().getCnx()
+                    .prepareStatement(requete);
+            pst.setInt(1, number);
+            pst.setInt(2, id);
+            
+            pst.executeUpdate();
+            System.out.println("user updated!");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
     

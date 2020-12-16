@@ -6,6 +6,8 @@
 package javaFxController;
 
 import entity.User;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javaFxInterface.Login;
@@ -18,6 +20,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
@@ -50,30 +55,34 @@ public class InscriptionController implements Initializable {
     private TextField password;
     @FXML
     private TextField confirmpassword;
+    @FXML
+    private Button browseid;
+    @FXML
+    private ImageView photoid;
+    private Image image;
+    private FileChooser fileChooser;
+    private File file;
 
     /**
      * Initializes the controller class.
      */
-    
     public void initialize(URL url, ResourceBundle rb) {
-       
-        
+
     }
-    
 
     @FXML
     private void interfacelogin(ActionEvent event) {
         try {
-                    FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../javaFxInterface/LoginInterface.fxml"));
-                    Parent root = (Parent) fxmlloader.load();
-                    Stage stage = new Stage();
-                    stage.initStyle(StageStyle.DECORATED);
-                    stage.setTitle("Inscription");
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                } catch (Exception e) {
-                    System.out.println("can't load new window");
-                }
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../javaFxInterface/LoginInterface.fxml"));
+            Parent root = (Parent) fxmlloader.load();
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Inscription");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("can't load new window");
+        }
     }
 
     @FXML
@@ -81,9 +90,9 @@ public class InscriptionController implements Initializable {
     }
 
     @FXML
-    private void Inscription(ActionEvent event) {
-        String check = "";
+    private void Inscription(ActionEvent event) throws MalformedURLException {
         User u = new User();
+        String imagepath=file.toURI().toURL().toString();
         try {
             if (password.getText().equals(confirmpassword.getText())) {
                 u.setNom(nom.getText());
@@ -92,46 +101,38 @@ public class InscriptionController implements Initializable {
                 u.setEmail(email.getText());
                 u.setPassword(password.getText());
                 u.setRole("client");
-                u.setVerification_account(1);
+                u.setVerification_account("1");
+                u.setImage(imagepath);
                 userServices ser = new userServices();
                 if (email.getText().contains("@")) {
                     ser.ajouter(u);
                     JOptionPane.showMessageDialog(null, "User Add succes");
-                    check = "+";
-
                 } else {
-                    
-                   
-                    
+
                     email.setText("");
                     JOptionPane.showMessageDialog(null, "can't Add user verify your email please");
-                    System.out.println("1111");
-                    
-                    System.out.println("222222");
-                    
-                    check = "-";
-
                 }
-//                if (check.equals("+")) {
-//                    try {
-//                        FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("../javaFxInterface/LoginInterface.fxml"));
-//                        Parent root = (Parent) fxmlloader.load();
-//                        Stage stage1 = new Stage();
-//                        stage1.initStyle(StageStyle.DECORATED);
-//                        stage1.setTitle("Inscription");
-//                        stage1.setScene(new Scene(root));
-//                        Stage stage = (Stage) signinid.getScene().getWindow();
-//                        stage1.close();
-//                        stage.show();
-//                    } catch (Exception e) {
-//                        System.out.println("can't load new window");
-//                    }
-//                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
+    }
+
+    @FXML
+    private void importer(ActionEvent event) {
+        fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
+
+        file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            image = new Image(file.toURI().toString());
+
+            photoid.setImage(image);
+
+        }
     }
 
 }
